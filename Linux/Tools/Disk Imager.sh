@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#Think of this script as a cheaper version of Symmantec Norton Ghost
+#Works especially well with managing multiple USB keys or to copy a drive
 if [ "$EUID" -ne 0 ]; then
   echo "Please run as root (with sudo)."
   exit
