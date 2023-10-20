@@ -79,3 +79,4 @@ echo "-Java-8 should be extracted in " $DIR
 echo "-Links were created in /usr/bin/java8 and java-8"
 echo "-A java-8.desktop was created in /usr/share/applications"
 echo "enjoy!"
+ 
