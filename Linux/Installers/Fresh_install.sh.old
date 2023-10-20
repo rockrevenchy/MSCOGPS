@@ -1,0 +1,120 @@
+#add repositories, adjust time for windows installation and basic system preparations
+#add-apt-repository ppa:system76/pop -y
+#add-apt-repository multiverse -y
+#apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 63C46DF0140D738961429F4E204DD8AEC33A7AFF
+#add-apt-repository "deb http://apt.pop-os.org/proprietary $(lsb_release -cs) main" -y
+#add-apt-repository "deb http://apt.pop-os.org/ubuntu $(lsb_release -cs) main multiverse restricted universe" -y
+
+timedatectl set-local-rtc 1 --adjust-system-clock
+apt update
+apt upgrade -y
+
+#install basic softwares & fonts first
+apt-get install htop fonts-symbola ne wine winetricks q4wine
+apt-get install handbrake git snapd neofetch timeshift npm ttf-mscorefonts-installer 
+apt-get install exe-thumbnailer default-jre engrampa earlyoom
+fc-cache -f -v
+
+#install extra softwares after
+apt-get install lutris pinta obs-studio steam 
+apt-get install virtualbox code filezilla discord audacity 
+apt-get install chromium remmina timeshift
+snap install freac
+snap install authy --beta
+
+#finally, install my personal favourite desktop environment as well as the default PopOS content
+#apt-get install -y cinnamon-desktop-environment pop-desktop
+
+#cleanup
+apt autoremove -y
+
+#Open browser on software that cannot be installed via terminal
+clear
+echo About to open software pages on firefox
+echo for manual installation softwares
+echo ...
+sleep 1
+clear
+echo About to open software pages on firefox
+echo for manual installation softwares
+echo ..
+sleep 1
+clear
+echo About to open software pages on firefox
+echo for manual installation softwares
+echo .
+sleep 1
+clear
+echo About to open software pages on firefox
+echo for manual installation softwares
+echo 
+sleep 1
+clear
+
+sudo -u $SUDO_USER firefox https://www.minecraft.net/en-us/store/minecraft-java-edition
+sudo -u $SUDO_USER firefox https://github.com/sharkwouter/minigalaxy/releases
+sudo -u $SUDO_USER firefox https://github.com/linuxmint/hypnotix/releases
+sudo -u $SUDO_USER firefox https://itch.io/app
+
+
+sleep 5
+
+
+#source code based installations
+
+#mangohud
+clear
+echo About to download Mangohud from github
+echo ...
+sleep 1
+clear
+echo About to download Mangohud from github
+echo ..
+sleep 1
+clear
+echo About to download Mangohud from github
+echo .
+sleep 1
+clear
+echo About to download Mangohud from github
+echo 
+sleep 1
+clear
+
+cd /root
+rm MangoHud -R
+git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git
+cd ~/MangoHud
+./build.sh build
+./build.sh package
+./build.sh install -y
+
+
+#Java8 Installation
+clear
+echo About to install java 8
+echo ...
+sleep 1
+clear
+echo About to install java 8
+echo ..
+sleep 1
+clear
+echo About to install java 8
+echo .
+sleep 1
+clear
+echo About to install java 8
+echo 
+sleep 1
+clear
+
+cd "/usr"
+mkdir Java
+cd ./Java/
+wget -c https://javadl.oracle.com/webapps/download/AutoDL?BundleId=244058_89d678f2be164786b292527658ca1605
+tar -x -f Auto*
+ln -s /usr/Java/jre*/bin/java /usr/bin/java8
+cd /usr/share/applications
+printf "[Desktop Entry]\nEncoding=UTF-8\nVersion=1.0\nType=Application\nNoDisplay=true\nExec=java8 -jar %%f\nName=java_1.8\nComment=Launch jar with java 8" >> java8.desktop
+cd ~/
