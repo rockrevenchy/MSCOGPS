@@ -1,5 +1,6 @@
 #!/bin/bash
 #Java8 Installation
+#This script installs Java 8 alongside any other java installation
 clear
 echo About to install java 8
 echo This script should run in sudo
