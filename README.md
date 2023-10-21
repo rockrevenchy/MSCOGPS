@@ -1,4 +1,6 @@
 # My-Sweet-Collection-Of-General-Purpose-Scripts
+My Sweet Collection Of General Purpose Scripts
+
 It's just a collection of useful scripts I made with time, thought i'd share
 
 it contains file organisation scripts as well as some specific tools
